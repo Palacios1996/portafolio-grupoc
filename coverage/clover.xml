@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1746736892267" clover="3.2.0">
+  <project timestamp="1746736892267" name="All files">
+    <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1" elements="15" coveredelements="15" complexity="0" loc="6" ncloc="6" packages="1" files="1" classes="1"/>
+    <file name="passwordValidator.js" path="C:\Users\Palacios\OneDrive\Escritorio\grupoc.github.io-main\portafolio-grupoc\src\passwordValidator.js">
+      <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+      <line num="4" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="5" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

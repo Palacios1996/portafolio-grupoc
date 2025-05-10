@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Grupo C - Desarrollo Ágil e IA Generativa</title>
+    <meta name="description" content="Portafolio digital del Grupo C sobre desarrollo ágil e inteligencia artificial generativa.">
+    <meta name="author" content="Grupo C">
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --tab-bg: #f8f9fa;
+            --tab-active: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #a0d8f1, #a0e1d5); /* Fondo de gradiente más suave */
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(135deg, #a0d8f1, #a0e1d5);
+            }
+            50% {
+                background: linear-gradient(135deg, #a0e1d5, #a0d8f1);
+            }
+            100% {
+                background: linear-gradient(135deg, #a0d8f1, #a0e1d5);
+            }
+        }
+
+        header {
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para las secciones */
+            position: relative;
+        }
+
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header-buttons a {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons a:hover {
+            background-color: var(--accent);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            color: var(--secondary);
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            color: var(--primary);
+        }
+
+        .tabs-container {
+            margin-bottom: 2rem;
+            background: var(--tab-bg);
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tab:last-child {
+            border-right: none;
+        }
+
+        .tab:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab.active {
+            background-color: var(--tab-active);
+            color: var(--primary);
+            border-top: 3px solid var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background-color: var(--tab-active);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente para los contenidos */
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .member {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para las cajas */
+        }
+
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .member a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .member a:hover {
+            text-decoration: underline;
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: var(--light);
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portafolio del Grupo C: Desarrollo Ágil y Uso de Inteligencia Artificial Generativa</h1>
+        <!-- Botón para cerrar sesión -->
+        <div class="header-buttons">
+            <a href="login.html" onclick="logout()">Cerrar sesión</a> <!-- Enlace a la página de login con logout -->
+        </div>
+    </header>
+
+    <!-- Campo de búsqueda -->
+    <input type="text" id="search" placeholder="Buscar integrantes...">
+    
+
+        <div id="integrantes" class="tab-content active">
+            <h2>Integrantes del Grupo</h2>
+            <div class="team-members" id="teamList">
+                <div class="member"><h3>Fernando</h3><p><a href="https://falzamora.github.io/feralzamora/" target="_blank">falzamora</a></p></div>
+                <div class="member"><h3>Carlos</h3><p><a href="https://helladrian0.github.io/CarlosAC/" target="_blank">Aquino</a></p></div>
+                <div class="member"><h3>Joseph</h3><p><a href="https://josephcf24.github.io/Josephcf24/" target="_blank">Josephcf24</a></p></div>
+                <div class="member"><h3>Omar Pacheco</h3><p><a href="https://omar3d2602.github.io/" target="_blank">Omar3d2602</a></p></div>
+                <div class="member"><h3>Feliciano</h3><p><a href="https://palacios1996.github.io/" target="_blank">Palacios</a></p></div>
+                <div class="member"><h3>Michel</h3><p><a href="https://nikolaida.github.io/mi-portafolio/" target="_blank">Davalos</a></p></div>
+            </div>
+        </div>
+
+        <div id="proyectos" class="tab-content">
+            <h2>Proyectos Individuales</h2>
+            <p>Explora algunos de los proyectos destacados de cada integrante:</p>
+            <div class="team-members">
+                <div class="member">
+                    <h3>Fernando</h3>
+                    <p>Proyecto: Sistema de Control de Inventario</p>
+                    <a href="https://falzamora.github.io/feralzamora/" target="_blank">Ver proyecto</a>
+                </div>
+                <div class="member">
+                    <h3>Carlos</h3>
+                    <p>Proyecto: Dashboard de Finanzas Personales</p>
+                    <a href="https://helladrian0.github.io/CarlosAC/" target="_blank">Ver proyecto</a>
+                </div>
+                <div class="member">
+                    <h3>Joseph</h3>
+                    <p>Proyecto: Aplicación de Recetas con IA</p>
+                    <a href="https://josephcf24.github.io/Josephcf24/" target="_blank">Ver proyecto</a>
+                </div>
+                <div class="member">
+                    <h3>Omar</h3>
+                    <p>Proyecto: Portafolio Interactivo en 3D</p>
+                    <a href="https://omar3d2602.github.io/" target="_blank">Ver proyecto</a>
+                </div>
+                <div class="member">
+                    <h3>Feliciano</h3>
+                    <p>Proyecto: Gestor de Tareas Colaborativo</p>
+                    <a href="https://palacios1996.github.io/" target="_blank">Ver proyecto</a>
+                </div>
+                <div class="member">
+                    <h3>Michel</h3>
+                    <p>Proyecto: Landing Page para Startups</p>
+                    <a href="https://nikolaida.github.io/mi-portafolio/" target="_blank">Ver proyecto</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="objetivo" class="tab-content">
+            <h2>Objetivo del Portafolio</h2>
+            <p>El objetivo de este portafolio es <strong>demostrar las habilidades adquiridas</strong> en el desarrollo ágil de software y la integración de inteligencia artificial generativa en la creación de soluciones efectivas.</p>
+        </div>
+
+        <div id="introduccion" class="tab-content">
+            <h2>Introducción</h2>
+            <p>Bienvenido/a a nuestro portafolio, un espacio donde convergen el <strong>desarrollo ágil de software</strong> y la <strong>inteligencia artificial generativa</strong> para crear soluciones innovadoras y eficientes.</p>
+            <ul class="checklist">
+                <li>Desarrollo ágil con enfoque en MVP.</li>
+                <li>Uso de IA generativa como ChatGPT y DALL·E.</li>
+                <li>Código limpio y arquitectura escalable.</li>
+            </ul>
+        </div>
+
+        <div id="problema" class="tab-content">
+            <h2>Descripción del Problema</h2>
+            <p>La necesidad de un portafolio digital profesional es fundamental. Por ello, desarrollamos una plataforma para mostrar proyectos individuales y fomentar la colaboración.</p>
+        </div>
+
+        <div id="metodologia" class="tab-content">
+            <h2>Metodología Ágil Utilizada</h2>
+            <p>Aplicamos <strong>Kanban</strong> para organizar tareas, flujos de trabajo y responsabilidades. Usamos herramientas como Trello y reuniones semanales para avanzar iterativamente.</p>
+        </div>
+
+        <div id="ia" class="tab-content">
+            <h2>Uso de Inteligencia Artificial Generativa</h2>
+            <p>Utilizamos IA generativa en distintas áreas:</p>
+            <ul class="checklist">
+                <li>ChatGPT para generar textos explicativos y documentación técnica.</li>
+                <li>DALL·E para crear imágenes conceptuales para el diseño de interfaces.</li>
+                <li>Refactorización de código usando sugerencias de IA para mantener buenas prácticas.</li>
+            </ul>
+        </div>
+
+        <div id="contacto" class="tab-content">
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <input type="submit" value="Enviar mensaje">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Portafolio desarrollado por el <strong>Grupo C</strong></p>
+        <p>Contacto: <a href="mailto:grupo_c@example.com">grupo_c@example.com</a></p>
+    </footer>
+
+    <script>
+        function openTab(event, tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Función de búsqueda
+        const searchInput = document.getElementById('search');
+        const teamList = document.getElementById('teamList');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const members = teamList.getElementsByClassName('member');
+
+            Array.from(members).forEach(member => {
+                const name = member.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    member.style.display = '';
+                } else {
+                    member.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+          e.preventDefault();
+      
+          const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+          };
+      
+          const res = await fetch('http://localhost:3000/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+      
+          const result = await res.json();
+          alert('¡Información enviada correctamente!');
+        });
+      </script>
+</body>
+</html>
+
+</html>
+

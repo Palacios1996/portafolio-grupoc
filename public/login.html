@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión</title>
+  <style>
+    /* Estilos para la página */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    p {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .auth-links {
+      margin-top: 15px;
+    }
+
+    .auth-links a {
+      color: #3498db;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0 10px;
+    }
+
+    .auth-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Iniciar sesión</h2>
+    <input type="email" id="email" placeholder="Correo" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button onclick="login()">Iniciar sesión</button>
+    <p id="message"></p>
+
+    <div class="auth-links">
+      <span>¿No tienes una cuenta?</span>
+      <a href="register.html">Registrarse</a> <!-- Enlace a la página de registro -->
+    </div>
+  </div>
+
+  <script>
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        document.getElementById('message').innerText = 'Por favor, ingrese ambos campos.';
+        return;
+      }
+
+      try {
+        // Asegúrate de que la URL apunte al servidor correcto
+        const response = await fetch('http://localhost:3000/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+
+        // Revisar si la respuesta fue exitosa
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('message').innerText = 'Login exitoso';
+          // Redirigir a otra página si es necesario, por ejemplo:
+          window.location.href = 'index.html';
+        } else {
+          document.getElementById('message').innerText = result.message || 'Error al iniciar sesión';
+        }
+      } catch (error) {
+        document.getElementById('message').innerText = 'Error en la conexión con el servidor';
+        console.error('Error en la conexión con el servidor:', error);
+      }
+    }
+  </script>
+</body>
+</html>
